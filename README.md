@@ -9,54 +9,55 @@
 O sistema foi modelado utilizando Programação Orientada a Objetos.  
 As entidades principais são Cliente, Produto, Venda, Funcionário e Loja.  
 As relações mostram que um cliente pode realizar múltiplas vendas e cada venda contém uma coleção de produtos utilizando List<T>.
+Produto representa os itens vendidos pela loja.
+
+Cliente representa quem compra.
+
+Funcionário representa quem registra a venda.
+
+Venda representa a transação.
+
+ItemVenda liga um produto a uma quantidade dentro da venda.
 
 
 ## Diagrama de Classes
 
 ```mermaid
 classDiagram
+    class Produto {
+        +int Id
+        +string Nome
+        +double Preco
+        +string Categoria
+    }
 
-class Cliente {
-  string Nome
-  string Email
-  string Login
-  string Senha
-  List<Venda> HistoricoCompras
-}
+    class Cliente {
+        +string Nome
+        +string Email
+        +List~Venda~ HistoricoCompras
+    }
 
-class Produto {
-  string Nome
-  double Preco
-  string Categoria
-  string TipoVenda
-  List<string> Tags
-}
+    class Funcionario {
+        +string Nome
+        +string Cargo
+        +double Salario
+    }
 
-class Venda {
-  Cliente Cliente
-  List<Produto> Produtos
-  double ValorTotal
-  string FormaPagamento
-  CalcularTotal()
-}
+    class ItemVenda {
+        +Produto Produto
+        +int Quantidade
+        +double Total()
+    }
 
-class Funcionario {
-  string Nome
-  string Cargo
-  double Salario
-  string Regime
-  Time HoraEntrada
-  Time HoraSaida
-}
+    class Venda {
+        +Cliente Cliente
+        +Funcionario Funcionario
+        +List~ItemVenda~ Itens
+        +DateTime Data
+        +double CalcularTotal()
+    }
 
-class Loja {
-  string Nome
-  string Endereco
-  List<Produto> Produtos
-  List<Funcionario> Funcionarios
-}
-
-Cliente "1" --> "*" Venda : realiza
-Venda "*" --> "*" Produto : contém
-Loja "1" --> "*" Produto : possui
-Loja "1" --> "*" Funcionario : possui
+    Cliente "1" --> "*" Venda : realiza
+    Funcionario "1" --> "*" Venda : registra
+    Venda "1" --> "*" ItemVenda : contem
+    ItemVenda "*" --> "1" Produto : refere-se a
