@@ -12,3 +12,4 @@ C:\Users\allis\development\LojaNatural\obj\Debug\net10.0\refint\LojaNatural.dll
 C:\Users\allis\development\LojaNatural\obj\Debug\net10.0\LojaNatural.pdb
 C:\Users\allis\development\LojaNatural\obj\Debug\net10.0\LojaNatural.genruntimeconfig.cache
 C:\Users\allis\development\LojaNatural\obj\Debug\net10.0\ref\LojaNatural.dll
+C:\Users\allis\development\LojaNatural\obj\Debug\net10.0\LojaNatural.sourcelink.json

@@ -1,0 +1,23 @@
+[
+  {
+    "Nome": "Jon Doe",
+    "Email": "JonDoe@gmail.com",
+    "Login": "",
+    "Senha": "",
+    "HistoricoCompras": []
+  },
+  {
+    "Nome": "Jane Doe",
+    "Email": "JaneDoe@gmail.com",
+    "Login": "",
+    "Senha": "",
+    "HistoricoCompras": []
+  },
+  {
+    "Nome": "Alice Smith",
+    "Email": "AS@loja.com",
+    "Login": "",
+    "Senha": "",
+    "HistoricoCompras": []
+  }
+]

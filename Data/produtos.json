@@ -1,0 +1,44 @@
+[
+  {
+    "Nome": "Amendoim",
+    "Preco": 15,
+    "Categoria": "Natural",
+    "Unidade": null
+  },
+  {
+    "Nome": "Castanha",
+    "Preco": 20,
+    "Categoria": "Natural",
+    "Unidade": null
+  },
+  {
+    "Nome": "Maca Peruana",
+    "Preco": 25,
+    "Categoria": "Natural",
+    "Unidade": null
+  },
+  {
+    "Nome": "Granola",
+    "Preco": 30,
+    "Categoria": "Natural",
+    "Unidade": null
+  },
+  {
+    "Nome": "Chia",
+    "Preco": 10,
+    "Categoria": "Natural",
+    "Unidade": null
+  },
+  {
+    "Nome": "Creatina",
+    "Preco": 60,
+    "Categoria": "Natural",
+    "Unidade": null
+  },
+  {
+    "Nome": "Whey",
+    "Preco": 75,
+    "Categoria": "Natural",
+    "Unidade": "Unidade"
+  }
+]

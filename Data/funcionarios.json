@@ -1,0 +1,29 @@
+[
+  {
+    "Nome": "Gerente",
+    "Email": "gerente@loja.com",
+    "Atribuicoes": [
+      2,
+      0
+    ]
+  },
+  {
+    "Nome": "Vendedor Joao",
+    "Email": "vendedor1@loja.com",
+    "Atribuicoes": [
+      1,
+      3,
+      0
+    ]
+  },
+  {
+    "Nome": "Vendedor Maria",
+    "Email": "vendedor2@loja.com",
+    "Atribuicoes": [
+      1,
+      3,
+      0
+    ]
+  }
+
+]

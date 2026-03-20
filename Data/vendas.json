@@ -1,0 +1,30 @@
+[
+  {
+    "Cliente": {
+      "Nome": "Jane Doe",
+      "Email": "JaneDoe@gmail.com",
+      "Login": "",
+      "Senha": "",
+      "HistoricoCompras": []
+    },
+    "Funcionario": {
+      "Nome": "Vendedor Joao",
+      "Email": "vendedor1@loja.com",
+      "Atribuicoes": [
+        1,
+        3,
+        0
+      ]
+    },
+    "Produtos": [
+      {
+        "Nome": "Chia",
+        "Preco": 10,
+        "Categoria": "Natural",
+        "Unidade": null
+      }
+    ],
+    "FormaPagamento": "credito",
+    "Data": "2026-03-20T14:24:27.9543487-03:00"
+  }
+]

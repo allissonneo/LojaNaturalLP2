@@ -1,52 +1,59 @@
 using LojaNatural.Models;
+using LojaNatural.Utils;
 
-namespace LojaNatural.Services;
-
-public class VendaService
+namespace LojaNatural.Services
 {
-    public List<Venda> Vendas { get; set; } = new List<Venda>();
-
-    public void RealizarVenda(Cliente cliente, List<Produto> produtos, string formaPagamento)
+    public class VendaService
     {
-        Venda venda = new Venda(cliente, formaPagamento);
+        public List<Venda> Vendas { get; set; }
 
-        foreach (var produto in produtos)
+        public VendaService()
         {
-            venda.Produtos.Add(produto);
+            Vendas = DataStore.CarregarVendas();
         }
 
-        venda.CalcularTotal();
-
-        Vendas.Add(venda);
-        cliente.HistoricoCompras.Add(venda);
-
-        Console.WriteLine("\nVenda realizada com sucesso!");
-        Console.WriteLine($"Cliente: {cliente.Nome}");
-        Console.WriteLine($"Forma de pagamento: {formaPagamento}");
-        Console.WriteLine($"Total: R$ {venda.ValorTotal:F2}");
-    }
-
-    public void ListarVendas()
-    {
-        if (Vendas.Count == 0)
+        public void RealizarVenda(Cliente cliente, Funcionario funcionario, List<Produto> produtos, string formaPagamento)
         {
-            Console.WriteLine("Nenhuma venda realizada.");
-            return;
+            Venda venda = new Venda(cliente, funcionario, produtos, formaPagamento);
+            Vendas.Add(venda);
+            DataStore.SalvarVendas(Vendas);
+
+            Console.WriteLine("Venda realizada com sucesso!");
         }
 
-        for (int i = 0; i < Vendas.Count; i++)
+        public void ListarVendas()
         {
-            var venda = Vendas[i];
-            Console.WriteLine($"\nVenda {i + 1}");
-            Console.WriteLine($"Cliente: {venda.Cliente.Nome}");
-            Console.WriteLine($"Forma de pagamento: {venda.FormaPagamento}");
-            Console.WriteLine($"Total: R$ {venda.ValorTotal:F2}");
-            Console.WriteLine("Produtos:");
-
-            foreach (var produto in venda.Produtos)
+            if (Vendas.Count == 0)
             {
-                Console.WriteLine($"- {produto.Nome} | R$ {produto.Preco:F2}");
+                Console.WriteLine("Nenhuma venda cadastrada.");
+                return;
             }
+
+            for (int i = 0; i < Vendas.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {Vendas[i]}");
+            }
+        }
+
+        public List<Venda> ObterVendasPorAnoEMes(int ano, int mes)
+        {
+            return Vendas
+                .Where(v => v.Data.Year == ano && v.Data.Month == mes)
+                .ToList();
+        }
+
+        public void CancelarVenda(int indice)
+        {
+            if (indice < 0 || indice >= Vendas.Count)
+            {
+                Console.WriteLine("Venda inválida.");
+                return;
+            }
+
+            Vendas.RemoveAt(indice);
+            DataStore.SalvarVendas(Vendas);
+
+            Console.WriteLine("Venda cancelada com sucesso!");
         }
     }
 }
